@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-button routerLink="/docente" color="warning">Volver
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="ion-padding ion-text-center" color="primary">
+  <div class="tittle">
+      <h4>Registrar Usuario</h4>
+  </div>
+  <ion-input placeholder="Nombre Completo" class="primary-input" color="dark"></ion-input>
+  <ion-input placeholder="Ingrese su rut" class="primary-input" color="dark"></ion-input>
+  <ion-input placeholder="password" type="password" class="primary-input" color="dark"></ion-input>
+
+  <div class="ion-margin-top"></div>
+  <ion-button expand="block" (click)="Saludo()" color="secondary" routerLink="/docente">Registrarse</ion-button>
+  
+</ion-content>
