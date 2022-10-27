@@ -26,10 +26,7 @@ export class AppComponent {
       name: 'informacion',
       redirecTo:'/informacion'
     },
-    {
-      icon:'person-circle-outline',
-      name: 'Cerrar Sesión',
-      redirecTo:'/inicio'
-    },
+    
+
   ];
 }

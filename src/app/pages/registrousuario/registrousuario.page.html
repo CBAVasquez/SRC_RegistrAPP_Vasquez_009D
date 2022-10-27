@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="light">
-    <ion-button routerLink="/docente" color="warning">Volver
+    <ion-button routerLink="/inicio" color="warning">Volver
     </ion-button>
   </ion-toolbar>
 </ion-header>
@@ -9,11 +9,45 @@
   <div class="tittle">
       <h4>Registrar Usuario</h4>
   </div>
-  <ion-input placeholder="Nombre Completo" class="primary-input" color="dark"></ion-input>
-  <ion-input placeholder="Ingrese su rut" class="primary-input" color="dark"></ion-input>
-  <ion-input placeholder="password" type="password" class="primary-input" color="dark"></ion-input>
+<ion-card-content>
+  <form [formGroup] = "formularioRegistro" (keyup.enter)="CrearUsuario()">
+    <ion-item>
+      <ion-label position="floating">Nombre:</ion-label>
+      <ion-input type="text" formControlName="nombre"></ion-input>
+    </ion-item>
 
-  <div class="ion-margin-top"></div>
-  <ion-button expand="block" (click)="Saludo()" color="secondary" routerLink="/docente">Registrarse</ion-button>
-  
+    <ion-item>
+      <ion-label position="floating">Correo:</ion-label>
+      <ion-input type="text" formControlName="correo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña:</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Confirma contraseña:</ion-label>
+      <ion-input type="password" formControlName="confirmaPass"></ion-input>
+    </ion-item>
+
+
+  <ion-list> 
+    <ion-item>
+      <ion-select  placeholder="tipo" formControlName="tipo">
+        <ion-select-option value="docente">Docente</ion-select-option>
+        <ion-select-option value="estudiante">Estudiante</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+    
+    <br>
+    <div class="ion-margin-top"></div>
+  <ion-button expand="block" (click)="CrearUsuario()"  fill= "solid" color="secondary" routerLink="/inicio">Registrarse</ion-button>
+
+  </form>
+</ion-card-content>
+
+
 </ion-content>

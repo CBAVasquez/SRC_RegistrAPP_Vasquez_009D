@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { IngresadoGuard } from './ingresado.guard';
+import { NoIngresadoGuard } from './no-ingresado.guard';
 
 const routes: Routes = [
   {
@@ -10,43 +12,56 @@ const routes: Routes = [
   {
     path: 'inicio',
     loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+    
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
+    canActivate: [NoIngresadoGuard]
+    
   },
-  {
-    path: 'loginest',
-    loadChildren: () => import('./pages/loginest/loginest.module').then( m => m.LoginestPageModule)
-  },
+
   {
     path: 'docente',
-    loadChildren: () => import('./pages/docente/docente.module').then( m => m.DocentePageModule)
+    loadChildren: () => import('./pages/docente/docente.module').then( m => m.DocentePageModule),
+    canActivate:[IngresadoGuard]
   },
   {
     path: 'estudiante',
-    loadChildren: () => import('./pages/estudiante/estudiante.module').then( m => m.EstudiantePageModule)
+    loadChildren: () => import('./pages/estudiante/estudiante.module').then( m => m.EstudiantePageModule),
+    canActivate:[IngresadoGuard]
   },
   {
     path: 'rescontra',
-    loadChildren: () => import('./pages/rescontra/rescontra.module').then( m => m.RescontraPageModule)
+    loadChildren: () => import('./pages/rescontra/rescontra.module').then( m => m.RescontraPageModule),
+    canActivate:[IngresadoGuard]
   },
   {
     path: 'registrousuario',
-    loadChildren: () => import('./pages/registrousuario/registrousuario.module').then( m => m.RegistrousuarioPageModule)
+    loadChildren: () => import('./pages/registrousuario/registrousuario.module').then( m => m.RegistrousuarioPageModule),
+    canActivate: [NoIngresadoGuard]
   },
   {
     path: 'qr',
-    loadChildren: () => import('./pages/qr/qr.module').then( m => m.QrPageModule)
+    loadChildren: () => import('./pages/qr/qr.module').then( m => m.QrPageModule),
+    canActivate:[IngresadoGuard]
   },
   {
     path: 'camara',
-    loadChildren: () => import('./pages/camara/camara.module').then( m => m.CamaraPageModule)
+    loadChildren: () => import('./pages/camara/camara.module').then( m => m.CamaraPageModule),
+    canActivate:[IngresadoGuard]
   },
   {
     path: 'informacion',
-    loadChildren: () => import('./pages/informacion/informacion.module').then( m => m.InformacionPageModule)
+    loadChildren: () => import('./pages/informacion/informacion.module').then( m => m.InformacionPageModule),
+    canActivate:[IngresadoGuard]
   },
+  {
+    path: 'api',
+    loadChildren: () => import('./pages/api/api.module').then( m => m.ApiPageModule)
+  },
+  
+
 ];
 
 @NgModule({
